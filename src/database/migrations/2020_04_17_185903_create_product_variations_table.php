@@ -25,7 +25,7 @@ class CreateProductVariationsTable extends Migration
             $table->timestamp('sale_end_at');
             $table->unsignedSmallInteger('sale_lower_limit')->default(0);
             $table->unsignedSmallInteger('sale_upper_limit')->default(65535);
-            $table->timestamp('registered_at')->default(DB::raw('CURRENT_DAYTIME'));
+            $table->timestamp('registered_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->unsignedBigInteger('expected_shipping_id');
             $table->softDeletesTz();
 
