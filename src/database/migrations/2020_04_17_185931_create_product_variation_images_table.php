@@ -15,6 +15,11 @@ class CreateProductVariationImagesTable extends Migration
     {
         Schema::create('product_variation_images', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('product_variation_id')->unique();
+            $table->unsignedBigInteger('image_id')->uniqid();
+
+            $table->foreign('product_variation_id')->references('id')->on('product_variations');
+            $table->foreign('image_id')->references('id')->on('images');
             $table->timestamps();
         });
     }
