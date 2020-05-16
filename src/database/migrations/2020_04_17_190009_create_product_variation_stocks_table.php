@@ -15,6 +15,10 @@ class CreateProductVariationStocksTable extends Migration
     {
         Schema::create('product_variation_stocks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('product_variation_id');
+            $table->unsignedSmallInteger('quantity');
+
+            $table->foreign('product_variation_id')->references('id')->on('products_variation');
             $table->timestamps();
         });
     }
