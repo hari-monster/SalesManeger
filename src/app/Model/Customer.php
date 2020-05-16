@@ -3,35 +3,23 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 
+
+/**
+ * App\Model\Customer
+ *
+ * @property int $id ID
+ * @property string $uuid UUID
+ * @property string $name 名前
+ * @property string $email メールアドレス
+ * @property Carbon|null $deleted_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ */
 class Customer extends Model
 {
-    private $customer;
 
-    /**
-     * Customer constructor.
-     * @param $customer
-     */
-    public function __construct($customer)
-    {
-        $this->customer = $customer;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCustomer()
-    {
-        return $this->customer;
-    }
-
-    /**
-     * @param mixed $customer
-     */
-    public function setCustomer($customer): void
-    {
-        $this->customer = $customer;
-    }
-
-
+    use SoftDeletes;
 }
