@@ -19,7 +19,7 @@ class CreateProductVariationStockHistoriesTable extends Migration
             $table->unsignedBigInteger('product_variation_id');
             $table->unsignedSmallInteger('quantity');
 
-            $table->foreign('product_variation_stock_id')->references('id')->on('product_variation_stocks');
+            $table->foreign('product_variation_stock_id')->references('id')->on('product_variation_stocks')->name('product_variation_stock_id');
             $table->foreign('product_variation_id')->references('id')->on('product_variations');
             $table->timestamps();
         });
