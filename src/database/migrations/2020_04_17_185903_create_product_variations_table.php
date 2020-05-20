@@ -14,7 +14,7 @@ class CreateProductVariationsTable extends Migration
     public function up()
     {
         Schema::create('product_variations', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary()->comment('ID');
+            $table->bigIncrements('id')->comment('ID');
             $table->unsignedBigInteger('product_id')->comment('商品情報ID');
             $table->string('sku_code')->comment('コード');
             $table->decimal('price', 12, 2)->default(0)->comment('価格');
