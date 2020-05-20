@@ -9,7 +9,7 @@ $factory->define(
     Product::class,
     function (Faker $faker) {
         return [
-            'code' => $faker->randomDigit,
+            'code' => $faker->uuid,
             'memo' => $faker->paragraph,
         ];
     }

@@ -15,7 +15,7 @@ $factory->define(
             'product_id' => function () {
                 return factory(Product::class)->create()->id;
             },
-            'sku_code' => $faker->randomDigit,
+            'sku_code' => $faker->uuid,
             'price' => $faker->numberBetween(100, 100000),
             'released_at' => Carbon::yesterday(),
             'expired_at' => Carbon::tomorrow(),

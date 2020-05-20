@@ -14,7 +14,7 @@ class CreateProductVariationStocksTable extends Migration
     public function up()
     {
         Schema::create('product_variation_stocks', function (Blueprint $table) {
-            $table->bigIncrements('id')->unsigned()->comment('ID');
+            $table->bigIncrements('id')->comment('ID');
             $table->unsignedBigInteger('product_variation_id')->comment('商品バリエーションID');
             $table->unsignedSmallInteger('quantity')->comment('在庫数');
 

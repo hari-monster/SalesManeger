@@ -14,7 +14,7 @@ class CreateProductTranslationsTable extends Migration
     public function up()
     {
         Schema::create('product_translations', function (Blueprint $table) {
-            $table->bigIncrements('id')->unsigned()->comment('ID');
+            $table->bigIncrements('id')->comment('ID');
             $table->unsignedBigInteger('product_id')->unique()->comment('商品ID');
             $table->string('local')->unique()->comment('言語コード'); //言語コードとは？
             $table->string('name')->comment('商品名');
