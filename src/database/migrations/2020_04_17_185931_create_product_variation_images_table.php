@@ -14,7 +14,13 @@ class CreateProductVariationImagesTable extends Migration
     public function up()
     {
         Schema::create('product_variation_images', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->comment('ID');
+            $table->unsignedBigInteger('product_variation_id')->comment('商品バリエーションID');
+            $table->unsignedBigInteger('image_id')->comment('画像情報ID');
+
+            $table->unique(['product_variation_id', 'image_id']);
+            $table->foreign('product_variation_id')->references('id')->on('product_variations');
+            $table->foreign('image_id')->references('id')->on('images');
             $table->timestamps();
         });
     }

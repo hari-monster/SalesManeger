@@ -14,7 +14,13 @@ class CreateProductVariationStockHistoriesTable extends Migration
     public function up()
     {
         Schema::create('product_variation_stock_histories', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->comment('ID');
+            $table->unsignedBigInteger('product_variation_stock_id')->comment('(履歴)商品バリエーション在庫ID');
+            $table->unsignedBigInteger('product_variation_id')->comment('(履歴)商品バリエーションID');
+            $table->unsignedSmallInteger('quantity')->comment('(履歴)在庫数');
+
+            $table->foreign('product_variation_stock_id')->references('id')->on('product_variation_stocks')->name('product_variation_stock_id');
+            $table->foreign('product_variation_id')->references('id')->on('product_variations');
             $table->timestamps();
         });
     }
