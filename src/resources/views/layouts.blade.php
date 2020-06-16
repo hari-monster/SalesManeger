@@ -16,10 +16,11 @@
 </head>
 <body>
 @section('sidebar')
-    ここがメインのサイドバー
+
 @show
 
 <div class="container">
+    @include('header')
     @yield('content')
 </div>
 </body>
