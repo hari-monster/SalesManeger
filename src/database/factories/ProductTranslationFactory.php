@@ -12,7 +12,7 @@ $factory->define(ProductTranslation::class, function (Faker $faker) {
             return factory(Product::class)->create()->id;
         },
         'name' => $faker->text(10),
-        'local' => $faker->uuid,
+        'local' => 'ja',
         'description' => $faker->paragraph,
     ];
 }
