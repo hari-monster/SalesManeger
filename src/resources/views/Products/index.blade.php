@@ -8,7 +8,9 @@
     @foreach($products as $product)
         <div class="media">
             <p>id: {{$product->id}}</p>
+            {{--本来はここに画像が入る--}}
             <img class="d-flex mr-3" data-src="holder.js/64x64?theme=sky" alt="商品画像">
+
             <div class="media-body">
                 <h5 class="mt-0">商品名: {{$product->name}}</h5>
                 <p>商品説明: {{$product->description}}</p>
